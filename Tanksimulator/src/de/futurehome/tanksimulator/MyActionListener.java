@@ -16,11 +16,41 @@ public class MyActionListener implements ActionListener {
 		
 		if (obj == f.btnEinfuellen) {
 			 double fuellstand = f.myTank.getFuellstand();
+			 int fuellstand1 = (int)f.myTank.getFuellstand();
+			 
 			 fuellstand = fuellstand + 5;
+			 fuellstand1 = 200 / 100 * (int)fuellstand;
+			 
 			 f.myTank.setFuellstand(fuellstand);
 
 			 f.lblFuellstand.setText(""+fuellstand);
+			 f.lblFuelPro.setText(""+Double.toString(fuellstand1));
+			 
+			 
 		}
+		
+		if (obj == f.btnVerbrauchen) {
+			 double fuellstand = f.myTank.getFuellstand();
+			 double fuellstand1 = f.myTank.getFuellstand();
+			 
+			 fuellstand = fuellstand - 2;
+			 fuellstand1 = 200 / 100 * fuellstand;
+			 
+			 f.myTank.setFuellstand(fuellstand);
+
+			 f.lblFuellstand.setText(""+fuellstand);
+			 f.lblFuelPro.setText(""+Double.toString(fuellstand1)+"%");
+		}
+		
+		if (obj == f.btnZuruck) {
+			double fuellstand = f.myTank.getFuellstand();
+			fuellstand = 0;
+			f.myTank.setFuellstand(fuellstand);
+
+			f.lblFuellstand.setText(""+fuellstand);
+		}
+		
+		
 
 	}
 }
