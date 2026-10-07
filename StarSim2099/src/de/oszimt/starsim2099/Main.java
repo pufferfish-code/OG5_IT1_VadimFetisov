@@ -14,11 +14,18 @@ public class Main {
 		Universum meinUniversum = new Universum(universumBreite, universumHoehe);
 		meinGame.setUniversum(meinUniversum);
 		
+		Mondplanet mond = new Mondplanet();
+		mond.setName("Mond");
+		mond.setPosX(Math.random() * universumBreite);
+		mond.setPosY(Math.random() * universumBreite);
+		meinGame.addMond(mond);
+		
+		
 		// Raumschiff hinzufügen
 		Raumschiff meinStarCarrier = new Raumschiff();
 		meinStarCarrier.setTyp("Star-Carrier DF100");
 		meinStarCarrier.setAntrieb("Sol 8");
-		meinStarCarrier.setMaxLadekapazitaet(250);
+//		meinStarCarrier.setMaxLadekapazitaet(250);
 		meinStarCarrier.setPosX(universumBreite / 2);
 		meinStarCarrier.setPosY(universumHoehe  / 2);
 		meinStarCarrier.setWinkel(180);

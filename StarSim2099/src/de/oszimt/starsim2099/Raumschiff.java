@@ -6,13 +6,73 @@ package de.oszimt.starsim2099;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Raumschiff {
+public class Raumschiff extends ThingPositionated {
 
-	// Attribute
+	private int maxKapazitaet;
+	private String typ;
+	private String antrieb;
+	private int winkel;
 	
-	// Methoden
+	public Raumschiff() {
+		super();
+	}
+	
+	public Raumschiff(double posX, double posY, String name,int maxKapazitaet, String typ, String antrieb, int winkel  ) {
+		super(posX, posY, name);
+		this.maxKapazitaet = maxKapazitaet;
+		this.typ = typ;
+		this.antrieb = antrieb;
+		this.winkel = winkel;
+	}
+	
+	public double getPosX() {
+		return posX;
+	}
 
-	// Darstellung
+	public void setPosX(double posX) {
+		this.posX = posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public void setPosY(double posY) {
+		this.posY = posY;
+	}
+
+	public int getMaxKapazitaet() {
+		return maxKapazitaet;
+	}
+
+	public void setMaxKapazitaet(int maxKapazitaet) {
+		this.maxKapazitaet = maxKapazitaet;
+	}
+
+	public String getTyp() {
+		return typ;
+	}
+
+	public void setTyp(String typ) {
+		this.typ = typ;
+	}
+
+	public String getAntrieb() {
+		return antrieb;
+	}
+
+	public void setAntrieb(String antrieb) {
+		this.antrieb = antrieb;
+	}
+
+	public int getWinkel() {
+		return winkel;
+	}
+
+	public void setWinkel(int winkel) {
+		this.winkel = winkel;
+	}
+
 	public static char[][] getDarstellung() {
 		char[][] raumschiffShape = { 
 				{'\0', '\0','_', '\0', '\0'},

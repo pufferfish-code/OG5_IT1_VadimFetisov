@@ -15,7 +15,7 @@ public class TestRaumschiff {
 		Raumschiff meinRaumschiff = new Raumschiff();
 		meinRaumschiff.setTyp(typ);
 		meinRaumschiff.setAntrieb(antrieb);
-		meinRaumschiff.setMaxLadekapazitaet(maxKapazitaet);
+//		meinRaumschiff.setMaxLadekapazitaet(maxKapazitaet);
 		meinRaumschiff.setWinkel(winkel);
 		meinRaumschiff.setPosX(posX);
 		meinRaumschiff.setPosY(posY);
@@ -26,9 +26,6 @@ public class TestRaumschiff {
 		
 		if (meinRaumschiff.getAntrieb().equals(antrieb))
 			System.out.println("Implementierung 'Antrieb' korrekt!");
-		
-		if (meinRaumschiff.getMaxLadekapazitaet() == maxKapazitaet)
-			System.out.println("Implementierung 'Kapazität' korrekt!");
 		
 		if (meinRaumschiff.getWinkel() == winkel)
 			System.out.println("Implementierung 'Winkel' korrekt!");

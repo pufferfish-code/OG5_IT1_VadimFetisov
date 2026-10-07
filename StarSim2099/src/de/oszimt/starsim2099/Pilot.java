@@ -6,10 +6,53 @@ package de.oszimt.starsim2099;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Pilot {
+public class Pilot extends ThingPositionated {
 
-	// Attribute
 	
-	// Methoden
+	private String grad;
+	
+	public Pilot() {
+		super();
+	}
+	
+	
+	public Pilot (double posX, double posY, String name, String Grad, String grad) {
+		super(posX, posY, name);
+		this.grad = grad;
+	}
+
+	public double getPosX() {
+		return posX;
+	}
+
+	public void setPosX(double posX) {
+		this.posX = posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public void setPosY(double posY) {
+		this.posY = posY;
+	}
+
+	public String getGrad() {
+		return grad;
+	}
+
+	public void setGrad(String grad) {
+		this.grad = grad;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

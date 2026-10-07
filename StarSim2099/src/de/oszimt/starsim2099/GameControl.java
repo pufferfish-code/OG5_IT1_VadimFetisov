@@ -18,7 +18,9 @@ public class GameControl {
 
 	private ArrayList<Planet> listPlaneten = new ArrayList<Planet>();
 	private ArrayList<Ladung> listLadungen = new ArrayList<Ladung>();
-
+	private ArrayList<Mondplanet> listMond = new ArrayList<Mondplanet>();
+	
+	
 	private Universum universum;
 	private Pilot pilot;
 	private Raumschiff raumschiff;
@@ -30,6 +32,7 @@ public class GameControl {
 	private static final CSIColor STAR_COLOR = CSIColor.FIREBRICK;
 	private static final CSIColor PLANET_COLOR = CSIColor.BLUE;
 	private static final CSIColor FREIGHT_COLOR = CSIColor.BROWNER;
+	private static final CSIColor MOND_COLOR = CSIColor.WHITE;
 
 	public GameControl() {
 		Properties text = new Properties();
@@ -81,15 +84,27 @@ public class GameControl {
 		}
 	}
 
+	public void addMond(Mondplanet meinMond) {
+		if (!listMond.contains(meinMond)) {
+			listMond.add(meinMond);
+		}
+	}
+	
 	public void addPlanet(Planet meinPlanet) {
 		if (!listPlaneten.contains(meinPlanet)) {
 			listPlaneten.add(meinPlanet);
 		}
-	}
+	}	
 
 	public void removePlanet(Planet meinPlanet) {
 		if (listPlaneten.contains(meinPlanet)) {
 			listPlaneten.remove(meinPlanet);
+		}
+	}
+	
+	public void removeMond(Mondplanet meinMond) {
+		if (listMond.contains(meinMond)) {
+			listMond.remove(meinMond);
 		}
 	}
 
@@ -124,6 +139,7 @@ public class GameControl {
 		char[][] shipShape = Raumschiff.getDarstellung();
 		drawShape(shipShape, SHIP_COLOR, new Position(centerX, centerY));
 	}
+	
 
 	private void drawShape(char[][] shape, CSIColor color, Position center) {
 		Dimension shapeSize = getShapeSize(shape);
@@ -192,6 +208,14 @@ public class GameControl {
 		char[][] planetShape = Planet.getDarstellung();
 		drawShape(planetShape, PLANET_COLOR, transformedPos);
 	}
+	
+	private void drawMond(Mondplanet mond) {
+		int centerX = (int) mond.getPosX();
+		int centerY = (int) mond.getPosY();
+		Position transformedPos = transformPos(new Position(centerX, centerY));
+		char[][] mondShape = Mondplanet.getDarstellung();
+		drawShape(mondShape, MOND_COLOR, transformedPos);
+	}
 
 	private void drawLadung(Ladung ladung) {
 		int centerX = (int) ladung.getPosX();
@@ -209,6 +233,9 @@ public class GameControl {
 		// Male alle Planeten
 		for (Planet planet : listPlaneten) {
 			drawPlanet(planet);
+		}
+		for (Mondplanet mond : listMond) {
+			drawMond(mond);
 		}
 		// Male alle Ladungen
 		for (Ladung ladung : listLadungen) {
